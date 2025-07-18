@@ -1,0 +1,69 @@
+--1 Remove Distinct Values
+
+
+with cte as (
+             select *,
+			 Row_Number() Over(partition by Car_ID, Brand,Model,Year,Fuel_type,Transmission,color,Owner_type,Mileage_kmpl
+			 order by(select null)
+			 ) as rn
+			from Final_Master_Table
+		)
+		
+delete from cte 
+where rn > 1;
+
+
+--Display Count of all cars
+
+  select count(Car_ID) as Totaal_Cars from Final_Master_table
+
+
+--Display the Count of cars with group by Transmission
+
+  
+    Select Transmission, count(Car_ID) as Count_of_cars from Final_Master_Table
+  group by Transmission;
+
+
+--Display count of cars basis on the colors
+
+ Select color, count(Car_ID) as Count_of_cars from Final_Master_Table
+  group by color;
+
+
+--display average sales of cars group by city, model and results put in descending order
+
+
+  select City, Model, Count(Car_ID) as total_Car_Sale_by_city, Round(avg(Price_Lakh),2) as avg_sales
+  from Final_Master_table
+  Group by City, Model
+  Order by total_Car_Sale_by_city, avg_sales desc;
+
+
+--find total sales of a cars group by city
+
+  Select City, sum(Price_Lakh) as total_money from Final_Master_table
+  Group by City
+  Order by total_money desc;
+
+
+-- find total sales group by year
+
+  Select Purchase_Year, Round(sum(Sale_Price_Lakh),4) as total_sales_per_year from Final_Master_table
+  Group by Purchase_Year
+  Order by total_sales_per_year desc;
+
+--average sales by top 5 model cars
+
+  Select top(5) Model, Round(avg(Price_Lakh),2) avg_sales 
+  from Final_Master_Table
+  group by Model
+  order by avg_sales desc;
+
+
+--display how much Cars sold in a month
+
+SELECT FORMAT(sale_date, 'yyyy-MM') AS month, COUNT(*) AS cars_sold
+FROM Final_Master_Table
+GROUP BY FORMAT(sale_date, 'yyyy-MM');
+
