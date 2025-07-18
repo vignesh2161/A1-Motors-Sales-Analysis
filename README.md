@@ -4,7 +4,7 @@ This is a complete data analysis project on car sales and services performed for
 
 ## Project Objective
 
-To analyze and understand the car sales, ownership patterns, insurance records, and service histories of A1 Motors and provide key business insights to help improve sales, customer retention, and operational efficiency.
+To analyze and understand the car sales, ownership patterns, insurance records, and service histories of A1 Motors and provide key business insights to help improve sales and operational efficiency.
 
 ## Role
 
@@ -37,22 +37,21 @@ As a Data Analyst, I was responsible for:
    - Removed duplicates  
    - Handled null values  
    - Transformed columns (e.g., rounding amounts)  
-   - Verified data types
-
+   
 5. SQL Insights 
    Performed queries to discover:
    - Top-selling models
-   - Age group of buyers
-   - Cities with highest orders
-   - Gender-based buying patterns
+   - Sales of all years
+   - Total sales per month
+   - Fuel_types
 
 6. Power BI Dashboard  
    Created a comprehensive dashboard showing:
-   - Total Sales & Orders
-   - Sales by Age Group, Gender, Model
-   - Top Performing Cities
-   - Customer Insights
-
+   - Total Sales 
+   - Sales by  Model
+   - Total cars
+   - Total models
+   
 7. Automation Using Python  
    Wrote a Python script to automate data refresh and scheduled it using Windows Task Scheduler.
 
@@ -67,25 +66,25 @@ As a Data Analyst, I was responsible for:
 
 ##  Findings & Insights
 
->  Insight 1: Most orders came from Tier 1 cities  
->  Evidence: Sales volume by city shows high orders in metros  
->  Recommendation: Focus marketing budgets in metro areas
+>  Insight 1: Most sales from the months  
+>  Evidence: Monthly sales between 109k to 117k throughout the year, but in March there will be a dip or loss. 
+>  Recommendation: Focus marketing, promotions, and discounts in March.
 
->  Insight 2: Customers aged 30–40 bought more cars  
->  Evidence: Age-based sales distribution peaked at 30–40  
->  Recommendation: Target offers and financing for that age range
+>  Insight 2: Top 5 models  
+>  Evidence: ACity and XUV 500 both are sold in 133k units, followed closely by creta (132k), duster (129k) and swift (128k). 
+>  Recommendation: Target offers, advertisements, and inventory around the top 5 models.
 
->  Insight 3: Sedans had the highest purchase rate  
->  Evidence: Model analysis showed Sedan dominance  
->  Recommendation: Expand sedan inventory
-
->  Insight 4: Male customers had higher purchasing rates  
->  Evidence: Gender-based filter in dashboard  
->  Recommendation: Launch campaigns to engage more female buyers
+>  Insight 3: Total sales per year  
+>  Evidence: 2022: 649.3K, 2023: 645.3K, 2024: only 1.78K units
+>  Recommendation: Carefully analyze the 2024 data. 
+      
+>  Insight 4: Fuel types distribution
+>  Evidence: Diesel (10.2K), Electric (10.1K), CNG (10K), Hybrid (9.9K), and Petrol (9.8K) vehicles have very similar sales figures.
+>  Recommendation: Maintain all types of fuels and increase electric vehicle stocks.
 
 ## Conclusion
 
-This project gave detailed insights into how A1 Motors operates in terms of sales and customer behavior. The dashboard allows stakeholders to make data-driven decisions while the automation ensures regular, up-to-date reporting with minimal manual work.
+This project provided valuable insights into A1 Motors' car sales, customer demographics, and service patterns. By integrating and analyzing multiple datasets using SQL, Power BI, and Python automation, the project enabled data-driven decisions to improve sales performance and customer targeting. It also showcases a complete data pipeline from raw data to dashboard and automation.
 
 ## Future Scope
 
