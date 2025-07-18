@@ -1,0 +1,35 @@
+from sqlalchemy import create_engine
+import pandas as pd
+import os
+from datetime import datetime
+from plyer import notification
+
+#  Define SQLAlchemy connection string
+server = r'LAPTOP-GUK5PVUE\SQLEXPRESS01'
+database = 'Car_report'
+driver = 'ODBC Driver 17 for SQL Server'
+
+connection_string = f"mssql+pyodbc://@{server}/{database}?driver={driver.replace(' ', '+')}&trusted_connection=yes"
+engine = create_engine(connection_string)
+
+#  SQL query
+Sqlquery = "SELECT * FROM Final_Master_Table"
+df = pd.read_sql(Sqlquery, con=engine) 
+
+#  Save CSV
+folder_path = r"D:\ETL Project"
+os.makedirs(folder_path, exist_ok=True)
+
+file_path = os.path.join(
+    folder_path,
+    f"Final_Master_Table_{datetime.now().strftime('%d-%b-%Y %H%M%S')}.csv"
+)
+
+df.to_csv(file_path, index=False)
+
+#  Notification
+notification.notify(
+    title='Report Status!!!',
+    message=f'Sales data has been successfully saved to:\n{file_path}\n\nTotal Rows: {df.shape[0]}\nTotal Columns: {df.shape[1]}',
+    timeout=10
+)
